@@ -34,7 +34,7 @@ public class PastebinTest {
         // Create paste
         pastebinPage.clickCreatePaste();
 
-        // Validate result (optional)
+        // Validate result
         assertTrue(driver.getTitle().contains("helloweb"));
     }
 

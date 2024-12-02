@@ -1,23 +1,26 @@
-package com.epam.training.Kislay_Kaushal.task1;
+package com.epam.training.Kislay_Kaushal.task2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
-public class PastebinPage {
+public class PastebinPageT2 {
     private WebDriver driver;
 
     // Locators
     private By newPasteField = By.id("postform-text");
+    private By syntaxHighlightDroxdown = By.id("select2-postform-format-container");
+    private By bashOption = By.xpath("//li[contains(text(), 'Bash')]");
     private By pasteExpirationDropdown = By.id("select2-postform-expiration-container");
     private By tenMinutesOption = By.xpath("//li[contains(text(),'10 Minutes')]");
     private By pasteTitleField = By.id("postform-name");
     private By createPasteButton = By.xpath("//button[contains(text(),'Create New Paste')]");
 
     // Constructor
-    public PastebinPage(WebDriver driver) {
+    public PastebinPageT2(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -25,6 +28,14 @@ public class PastebinPage {
     public void enterPasteContent(String content) {
         waitForElement(newPasteField);
         driver.findElement(newPasteField).sendKeys(content);
+    }
+
+    public void selectSyntaxOption(){
+        waitForElement(syntaxHighlightDroxdown);
+        driver.findElement(syntaxHighlightDroxdown).click();
+
+        waitForElement(bashOption);
+        driver.findElement(bashOption).click();
     }
 
     public void selectPasteExpiration() {
@@ -45,7 +56,7 @@ public class PastebinPage {
         driver.findElement(createPasteButton).click();
     }
 
-    // Utility Method for Synchronization
+//     Utility Method for Synchronization
     private void waitForElement(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
