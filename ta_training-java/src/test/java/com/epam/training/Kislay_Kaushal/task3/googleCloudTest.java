@@ -41,10 +41,10 @@ public class googleCloudTest {
         googleCloudPage.clickAddToEstimate();
     }
 
-//    @After
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
