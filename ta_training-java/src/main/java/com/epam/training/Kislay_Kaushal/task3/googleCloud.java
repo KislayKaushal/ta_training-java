@@ -137,10 +137,12 @@ public class googleCloud {
     }
 
     public void clickAddToEstimate() {
-        wait.until(ExpectedConditions.elementToBeClickable(shareBtn)).click();
-        delay(1000); // Adding 2-second delay
-        wait.until(ExpectedConditions.elementToBeClickable(estimateSummaryBtn)).click();
-        delay(1000); // Adding 2-second delay
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@aria-label='Open detailed view']"))).click();
+//        delay(1000); // Adding 2-second delay
+
+//        wait.until(ExpectedConditions.elementToBeClickable(estimateSummaryBtn)).click();
+        delay(3000); // Adding 2-second delay
     }
 
     // Helper Method for Delay
